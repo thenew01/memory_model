@@ -2,3 +2,7 @@
 *.ncb
 /debug
 /release
+*.htm
+/Backup
+/.vs/memory_model
+*.filters

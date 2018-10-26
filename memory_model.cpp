@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 
-/*
+
 #include <string.h>
 #include <stdlib.h>
 #include <iostream>
@@ -13,6 +13,20 @@ int g_a = 1;
 int g_aa = 2;
 const int g_b = 3;
 const int g_bb = 4;
+
+
+int test1()
+{
+	char szA[1024*1100];
+	return 0;
+}
+
+int test2()
+{
+	char szA[10] = {0,};
+	szA[1000] = 0;
+	return 1;
+}
 
 class CA
 {
@@ -35,33 +49,10 @@ public:
 	int b;
 };
 
-
-int test1()
-{
-	char szA[1024*1000];
-	return 0;
-}
-
-int test2()
-{
-	char szA[10] = {0,};
-	szA[1000] = 0;
-	return 1;
-}
-template<typename dst_type,typename src_type>
-dst_type union_cast(src_type src)
-{
-	union{
-		src_type s;
-		dst_type d;
-	}u;
-	u.s = src;
-	return u.d;
-}
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	//test2();
+	test1();
 	//char szA[2];
 	//strcpy(szA, "11111111111111111111111111111111111111111111111111111111111111111111111111111111111");
 
@@ -73,16 +64,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	CA* pA = new CA;
 	pA->a = 1;
 	pA->b = 2;
-
-	typedef void (CA::*func_ptr)();
-	func_ptr f1 = &CA::func1;
-
-	void* p1 = (void*)union_cast<void*>(&CA::func1);
-	void* p2 = (void*)union_cast<void*>(&CA::func2);
-	printf("0x%08x\n", &CA::func1 );
-	printf("0x%08x\n", &CA::func2 );
-	printf("0x%08x\n" ,(int)&CA::func3 );
-	printf("0x%08x\n" ,(int)&CA::func4 );
+	
+	cout.setf( ios_base::hex );
+	cout << &c <<  endl;
+	cout << &cc << endl;
+	cout << &d << endl;
+	cout << &dd << endl << endl;
+	
+	cout << &pA->a <<endl;
+	cout << &pA->b <<endl;
+	printf("%08X\n", &CA::func1 );
+	printf("%08X\n", &CA::func2 );
+	printf("%08X\n" ,(int)&CA::func3 );
+	printf("%08X\n" ,(int)&CA::func4 );
 
 	char* p3 = new char[5];
 	//delete[] p1;	
@@ -92,7 +86,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	return 0;
-}*/
+}
 
 /*
 #include <stdio.h> 
@@ -121,6 +115,8 @@ int main()
 
 	return 0; 
 } */
+
+/*
 
 #include <windows.h>
 #include <tchar.h>
@@ -187,4 +183,4 @@ int _tmain(){
     _tprintf(_T("__alignof(BYTE3)==%d\n"), sz3);
 
     return 0;
-}
+}*/
