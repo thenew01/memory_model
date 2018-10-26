@@ -1,8 +1,8 @@
 *.user
 *.ncb
-/debug
-/release
+/debug/*.*
+/release/*.*
 *.htm
-/Backup
-/.vs/memory_model
+/Backup/*.*
+/.vs/memory_model/*.*
 *.filters
