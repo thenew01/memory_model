@@ -1,8 +1,9 @@
 *.user
 *.ncb
-Debug/*.*
-Release/*.*
+Debug
+Release
+Backup
 *.htm
-Backup/*.*
+*.suo
 *.filters
 .vs
