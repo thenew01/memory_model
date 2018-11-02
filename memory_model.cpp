@@ -16,7 +16,6 @@ const int g_b = 3;
 const int g_bb = 4;
 
 int test2();
-
 int test1()
 {
 	char szA[1024];

@@ -18,7 +18,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="thread.cpp">
+    <ClCompile Include="move_syntax.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
