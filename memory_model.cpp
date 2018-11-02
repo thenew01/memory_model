@@ -2,7 +2,8 @@
 //
 
 #include "stdafx.h"
-
+#include <functional>
+using namespace std;
 
 #include <string.h>
 #include <stdlib.h>
@@ -14,17 +15,21 @@ int g_aa = 2;
 const int g_b = 3;
 const int g_bb = 4;
 
+int test2();
 
 int test1()
 {
-	char szA[1024*1100];
+	char szA[1024];
+	test2();
 	return 0;
 }
 
 int test2()
 {
+	int a = 1;
+	test1();
 	char szA[10] = {0,};
-	szA[1000] = 0;
+	strcpy(szA,"ssssssssssaaaaaaaaaaaaaaaaaaa");
 	return 1;
 }
 
@@ -49,10 +54,54 @@ public:
 	int b;
 };
 
+void question1()
+{
+	char szA[10];
+	int a = 0;
+	sscanf(szA, "%d", a);
+}
+
+
+template<class dst_type, class src_type>
+dst_type union_cast(src_type src)
+{
+	union
+	{
+		src_type s;
+		dst_type d;
+	} u;
+
+	u.s = src;
+	return u.d;
+}
+
+int g1 = 0, g2 = 0, g3 = 0;
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	static int s1 = 0;
+	static int s2 = 0;
+	static int s3 = 0;
+	int v1 = 0;
+	int v2 = 0;
+	int v3 = 0;
+	//打印出各个变量的内存地址 
+	printf("0x%08x\n", &v1); //打印各本地变量的内存地址 
+	printf("0x%08x\n", &v2);
+	printf("0x%08x\n\n", &v3);
+	printf("0x%08x\n", &g1); //打印各全局变量的内存地址 
+	printf("0x%08x\n", &g2);
+	printf("0x%08x\n\n", &g3);
+	printf("0x%08x\n", &s1); //打印各静态变量的内存地址 
+	printf("0x%08x\n", &s2);
+	printf("0x%08x\n\n", &s3);
 
-	test1();
+	DWORD dwTest = 0xffffffff;
+	int dwNeg = -1;
+
+	//test1();
+
+	//test2();
 	//char szA[2];
 	//strcpy(szA, "11111111111111111111111111111111111111111111111111111111111111111111111111111111111");
 
@@ -71,12 +120,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << &d << endl;
 	cout << &dd << endl << endl;
 	
-	cout << &pA->a <<endl;
-	cout << &pA->b <<endl;
-	printf("%08X\n", &CA::func1 );
-	printf("%08X\n", &CA::func2 );
-	printf("%08X\n" ,(int)&CA::func3 );
-	printf("%08X\n" ,(int)&CA::func4 );
+	cout << &pA->a << endl;
+	cout << &pA->b << endl;
+	printf("%p\n", union_cast<void*>(&CA::func1) );
+	printf("%p\n", union_cast<void*>(&CA::func2) );
+	printf("%p\n", &CA::func3 );
+	printf("%08x\n" ,&CA::func4 );
 
 	char* p3 = new char[5];
 	//delete[] p1;	
@@ -88,36 +137,18 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
-/*
+
 #include <stdio.h> 
-int g1=0, g2=0, g3=0; 
+
 int main() 
 { 
-	static int s1=0, s2=0, s3=0; 
-	int v1=0, v2=0, v3=0; 
-	//打印出各个变量的内存地址 
-	printf("0x%08x\n",&v1); //打印各本地变量的内存地址 
-	printf("0x%08x\n",&v2); 
-	printf("0x%08x\n\n",&v3); 
-	printf("0x%08x\n",&g1); //打印各全局变量的内存地址 
-	printf("0x%08x\n",&g2); 
-	printf("0x%08x\n\n",&g3); 
-	printf("0x%08x\n",&s1); //打印各静态变量的内存地址 
-	printf("0x%08x\n",&s2); 
-	printf("0x%08x\n\n",&s3); 
-
-	int a; 
-	char b; 
-	int c; 
-	printf("0x%08x\n",&a); 
-	printf("0x%08x\n",&b); 
-	printf("0x%08x\n",&c); 
+	
 
 	return 0; 
-} */
+} 
+
 
 /*
-
 #include <windows.h>
 #include <tchar.h>
 #include <locale.h>

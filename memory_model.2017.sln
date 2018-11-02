@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "memory_model", "memory_model.vcxproj", "{B486D513-8882-4CF0-BBE1-6E16DD299ACA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B486D513-8882-4CF0-BBE1-6E16DD299ACA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B486D513-8882-4CF0-BBE1-6E16DD299ACA}.Debug|Win32.Build.0 = Debug|Win32
+		{B486D513-8882-4CF0-BBE1-6E16DD299ACA}.Release|Win32.ActiveCfg = Release|Win32
+		{B486D513-8882-4CF0-BBE1-6E16DD299ACA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2A8B3EB-CAAF-45E2-A5DC-D54674B165AF}
+	EndGlobalSection
+EndGlobal

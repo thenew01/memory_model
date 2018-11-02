@@ -1,0 +1,8 @@
+*.user
+*.ncb
+Debug/*.*
+Release/*.*
+*.htm
+Backup/*.*
+*.filters
+.vs
